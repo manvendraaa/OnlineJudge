@@ -1,0 +1,8 @@
+<%- include("_header"); %>
+    <h1>Problems</h1>
+    <ul class="list-group">
+        <% for(problem of all_problems){%>
+            <li class="list-group-item"><a href="/problem/<%= problem.id %>"><%= problem.name%></a></li>
+        <%}%>
+    </ul>
+<%- include("_footer"); %>

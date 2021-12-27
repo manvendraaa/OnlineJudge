@@ -1,0 +1,18 @@
+<%- include("_header"); %>
+    <h1><%= problem.name%></h1>
+    <br>
+    <p><%= problem.statement%></p>  
+    <br>
+    <div>
+        <h3>Test Cases</h3>
+        <p> Input : <%= problem.input %></p>
+        <p> Output : <%= problem.output %></p>
+    </div>
+
+    <div class="container">
+        <form action="/run/<%= problem.id%>" method="POST">
+            <textarea name="code" cols="70" rows="20" required></textarea>
+            <input class="btn btn-primary" type="submit" value="Submit">
+        </form>
+    </div>
+<%- include("_footer"); %>
