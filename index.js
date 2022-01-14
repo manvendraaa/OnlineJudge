@@ -14,7 +14,7 @@ const path = require("path");
 app.use(express.urlencoded({extended: true}));
 
 // for static files
-app.use(express.static("./assets"));
+// app.use(express.static("./assets"));
 
 // setting up view engine
 app.set("view engine", "ejs");
@@ -51,7 +51,7 @@ app.get('/problem/:id',(req,res)=>{
             console.log(err);
             return;
         }
-        return res.render('problem', {
+        return res.render('problem.ejs', {
             problem: problem
         })
     })
@@ -70,6 +70,8 @@ app.post('/run/:id',async (req,res)=>{
         const output = await executeCpp();
         // console.log(output);
         await fs.writeFileSync(useroutput, output );
+        console.log(output);
+        console.log(problem.output);
         if(output == problem.output ){
             console.log('correct output');
         }
